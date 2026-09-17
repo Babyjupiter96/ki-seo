@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: ki-seo
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    envVars:
+      # This service's own public URL (fill in after first deploy, e.g.
+      # https://ki-seo.onrender.com), then redeploy.
+      - key: NEXT_PUBLIC_SITE_URL
+        sync: false
+      # The Ki Real Estate site's public URL (the shared backend/CRM).
+      - key: NEXT_PUBLIC_API_BASE_URL
+        sync: false
+      - key: NEXT_PUBLIC_REAL_ESTATE_URL
+        sync: false
